@@ -1,0 +1,377 @@
+footer {
+  grid-area: footer;
+  background: rgb(13, 71, 161);
+  text-align: center;
+  padding-top: 5vh;
+  width: 100%;
+}
+
+.redes,
+.politicas,
+.derechosreservados {
+  color: rgb(241, 243, 248);
+  padding: 5px;
+  font-family: cursive;
+}
+
+header {
+  grid-area: header;
+  background: rgb(13, 71, 161);
+  padding: 0 20px;
+  color: rgb(241, 243, 248);
+  height: fit-content;
+  width: 100%;
+  align-items: center;
+}
+
+header form {
+  /*margin-left: 60px;*/
+  align-items: center;
+}
+
+.navbar-brand {
+  color: rgb(241, 243, 248);
+  font-size: x-large;
+  align-content: center;
+}
+.navbar-brand:hover {
+  animation: agitar 0.5s;
+  animation-iteration-count: infinite;
+}
+
+.navbar-nav {
+  color: rgb(241, 243, 248);
+  cursor: pointer;
+}
+
+/*ANIMACION NOOBER*/
+@keyframes agitar {
+  0% {
+    transform: translate(-1px, -2px) rotate(0deg);
+  }
+  20% {
+    transform: translate(3px, 2px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  90% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  width: 100%;
+  font-family: cursive;
+  background-image: url(../imageneswep/videojuegos1.jpeg);
+  background-size: cover;
+  background-position: center;
+}
+body::before {
+  content: "";
+  background: rgba(23, 9, 61, 0.8);
+  position: absolute;
+  width: 100%;
+}
+
+/*PLANTILLAS*/
+#plantillahome {
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-areas: "header header" "noticias ofertas" "footer footer";
+  grid-template-columns: 1fr 1fr;
+}
+
+#plantillasesion {
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  column-gap: 20vh;
+  grid-template-areas: "header header" "imagensesion datos" "footer footer";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+#plantillacuenta {
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-areas: "header" "registro" "footer";
+  grid-template-columns: 1fr;
+}
+
+#plantillanosotros {
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-areas: "header header header" "fotos historia historia" "fotos historiados historiados" "footer footer footer";
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+#plantillaaccesorios {
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-areas: "header" "accesorios1" "accesorios2" "footer";
+  grid-template-columns: 1fr;
+}
+
+.paginaenconstruccion {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  color: rgb(241, 243, 248);
+  background-image: url(../imageneswep/code.jpg);
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  justify-content: center;
+  transition: all 0.4s;
+}
+.paginaenconstruccion h1:hover {
+  color: rgb(13, 71, 161);
+}
+
+.container-fluid {
+  text-align: center;
+  align-content: center;
+}
+
+.form-control {
+  box-shadow: none;
+  size: adjust 30px;
+}
+
+.d-block {
+  border-radius: 10px;
+}
+
+.carouselslide {
+  width: 100%;
+  padding-top: 45px;
+  font-family: cursive;
+}
+
+.btn {
+  background: rgb(241, 243, 248);
+  font-family: cursive;
+  color: rgb(13, 71, 161);
+  border-bottom: 5px;
+  border: 2px solid rgba(23, 9, 61, 0.8);
+  transition: all 0.4s;
+}
+.btn:hover {
+  border: 2px solid rgb(241, 243, 248);
+  background: rgb(13, 71, 161);
+}
+
+/*PSEUDO-CLASES*/
+div ul:link {
+  color: rgb(241, 243, 248);
+}
+
+input {
+  border-radius: 2px;
+  border: 1px solid rgb(241, 243, 248);
+}
+
+/*GRILLAS*/
+#noticias, #ofertas {
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  grid-area: noticias;
+  padding: 10px;
+  justify-content: center;
+  color: rgb(241, 243, 248);
+}
+
+#ofertas {
+  grid-area: ofertas;
+}
+
+#datos, #registro {
+  grid-area: datos;
+  height: fit-content;
+  width: fit-content;
+  display: flex;
+  padding: 50px;
+  margin: 100px;
+  border-radius: 20px;
+  border: 2px solid rgb(241, 243, 248);
+  color: rgb(241, 243, 248);
+  background: rgba(23, 9, 61, 0.8);
+}
+
+#imagensesion, #fotos {
+  grid-area: imagensesion;
+  background-image: url(../imageneswep/areyouplayer.jpg);
+  display: flex;
+  color: rgb(241, 243, 248);
+  padding: 0px 50px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  height: 85vh;
+}
+
+#registro {
+  grid-area: registro;
+}
+
+#fotos {
+  grid-area: fotos;
+  background-image: url(../imageneswep/top-de-accesorios-gaming.jpg);
+}
+
+#historia, #historiados {
+  grid-area: historia;
+  height: fit-content;
+  width: fit-content;
+  display: flex;
+  color: rgb(241, 243, 248);
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px 0px 10px 10px;
+  border: 2px solid rgb(241, 243, 248);
+  background: rgba(23, 9, 61, 0.8);
+}
+
+#historiados {
+  grid-area: historiados;
+}
+
+#accesorios1, #accesorios2 {
+  grid-area: accesorios1;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  height: fit-content;
+  padding: 10px, 2;
+  border: 2px solid rgb(241, 243, 248);
+  border-radius: 10px;
+  background: rgba(23, 9, 61, 0.8);
+}
+
+#accesorios2 {
+  grid-area: accesorios2;
+}
+
+/*ACCESORIOS*/
+h4 {
+  color: rgb(241, 243, 248);
+  margin: 15px 0px;
+}
+
+p {
+  color: rgb(241, 243, 248);
+  margin: 10px;
+  padding: 10px 30px;
+}
+
+.agregar-a-carrito {
+  display: inline-block;
+  text-decoration: none;
+  color: rgb(13, 71, 161);
+  background-color: rgb(241, 243, 248);
+  padding: 10px 30px;
+  border: 3px solid rgb(241, 243, 248);
+  border-radius: 30px;
+  margin-top: 15px;
+  transition: all 0.4s;
+}
+.agregar-a-carrito:hover {
+  background: rgb(13, 71, 161);
+  color: rgb(241, 243, 248);
+}
+
+.joys {
+  width: 100vh, 10;
+}
+
+.compras img {
+  max-width: 20vh;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+/*REGISTRO*/
+.form-control {
+  align-self: baseline;
+}
+
+.form-check-input {
+  background: rgb(241, 243, 248);
+}
+
+/* RESPONSIVE */
+/* Smartphones (horizontal) ----------- */
+@media (max-width: 760px) {
+  body {
+    font-size: small;
+  }
+  #plantillahome {
+    grid-template-areas: "header" "noticias" "ofertas" "footer";
+    grid-template-columns: 1fr;
+  }
+  #plantillanosotros {
+    grid-template-areas: "header" "fotos" "historia" "historiados" "footer";
+    grid-template-columns: 1fr;
+  }
+  #fotos {
+    height: 45vh;
+    padding: 0 50px;
+    margin: 5px;
+  }
+  #plantillasesion {
+    grid-template-areas: "header" "imagensesion" "datos" "footer";
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-items: center;
+  }
+  #imagensesion, #fotos {
+    height: 45vh;
+    width: 100%;
+  }
+  #accesorios1,
+  #accesorios2 {
+    flex-direction: column;
+    display: block;
+    height: fit-content;
+  }
+  #registro {
+    flex-direction: column;
+    height: fit-content;
+    width: fit-content;
+    padding: 5vh;
+  }
+}
+@media (max-width: 1300px) and (min-width: 760px) {
+  body {
+    font-size: medium;
+  }
+  #registro {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

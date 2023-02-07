@@ -1,0 +1,330 @@
+@import "footer", "header", "variable";
+
+@mixin sizes($width, $height, $display){
+  height: $height;
+  width: $width;
+  display: $display;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  width: $ancho;
+  font-family: $font;
+  background-image: url(../imageneswep/videojuegos1.jpeg);
+  background-size: cover;
+  background-position: center;
+
+  &::before{
+    content: "";
+    background: $gray;
+    position: absolute;
+    width: $ancho;
+    
+  }
+}
+
+/*PLANTILLAS*/
+
+#plantillahome {
+  @include sizes($ancho, $alto, grid);
+  grid-template-areas: "header header" "noticias ofertas" "footer footer";
+  grid-template-columns: 1fr 1fr;
+}
+
+#plantillasesion {
+  @include sizes($ancho, $alto, grid);
+  column-gap: 20vh;
+  grid-template-areas: "header header" "imagensesion datos" "footer footer";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+#plantillacuenta {
+  @include sizes($ancho, $alto, grid);
+  grid-template-areas: "header" "registro" "footer";
+  grid-template-columns: 1fr;
+}
+
+#plantillanosotros {
+  @include sizes($ancho, $alto, grid);
+  grid-template-areas: "header header header" "fotos historia historia" "fotos historiados historiados" "footer footer footer";
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+#plantillaaccesorios {
+  @include sizes($ancho, $alto, grid);
+  grid-template-areas: "header" "accesorios1" "accesorios2" "footer";
+  grid-template-columns: 1fr;
+}
+
+.paginaenconstruccion{
+  @include sizes($ancho, $alto, flex);
+  color: $white;
+  background-image: url(../imageneswep/code.jpg);
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  justify-content: center;
+  transition: all 0.4s;
+
+  & h1:hover {
+    color: $blue;
+  }
+
+}
+.container-fluid {
+  text-align: center;
+  align-content: center;
+}
+
+.form-control {
+  box-shadow: none;
+  size: adjust ($step*3);
+}
+
+.d-block {
+  border-radius: $step;
+}
+
+.carouselslide {
+  width: $ancho;
+  padding-top: ($step*4)+5;
+  font-family: $font;
+}
+
+.btn {
+  background: $white;
+  font-family: $font;
+  color: $blue;
+  border-bottom: 5px;
+  border: 2px solid $gray;
+  transition: all 0.4s;
+
+  &:hover {
+    border: 2px solid $white;
+    background: $blue;
+  }
+}
+
+/*PSEUDO-CLASES*/
+
+div ul:link {
+  color: $white;
+}
+
+input {
+  border-radius: 2px;
+  border: 1px solid $white;
+}
+
+/*GRILLAS*/
+
+#noticias {
+  @include sizes($ancho, fit-content, flex);
+  grid-area: noticias;
+  padding: $step;
+  justify-content: center;
+  color: $white;
+}
+
+#ofertas {
+  grid-area: ofertas;
+  @extend #noticias;
+}
+
+#datos {
+  grid-area: datos;
+  @include sizes(fit-content, fit-content, flex);
+  padding: ($step*5);
+  margin: $step*10;
+  border-radius: ($step*2);
+  border: 2px solid $white;
+  color: $white;
+  background: $gray;
+
+}
+
+
+#imagensesion {
+  grid-area: imagensesion;
+  background-image: url(../imageneswep/areyouplayer.jpg);
+  display: flex;
+  color: $white;
+  padding: 0px ($step*5);
+  background-size: cover;
+  background-position: center;
+  border-radius: $step;
+  height: ($alto)-15;
+
+
+}
+
+#registro {
+  grid-area: registro;
+  @extend #datos;
+}
+
+#fotos {
+  grid-area: fotos;
+  background-image: url(../imageneswep/top-de-accesorios-gaming.jpg);
+  @extend #imagensesion;
+}
+
+#historia {
+  grid-area: historia;
+  @include sizes(fit-content, fit-content, flex);
+  color: $white;
+  border-radius: ($step);
+  padding: 10px;
+  margin: 10px 0px 10px 10px;
+  border: 2px solid $white;
+  background: $gray;
+}
+
+#historiados {
+  grid-area: historiados;
+  @extend #historia;
+}
+
+#accesorios1 {
+  grid-area: accesorios1;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  height: fit-content;
+  padding: ($step, 2);
+  border: 2px solid $white;
+  border-radius: $step;
+  background: $gray;
+}
+
+#accesorios2 {
+  grid-area: accesorios2;
+  @extend #accesorios1;
+}
+
+/*ACCESORIOS*/
+
+h4 {
+  color: $white;
+  margin: ($step)+5 0px;
+}
+
+p {
+  color: $white;
+  margin: $step;
+  padding: $step (
+    $step*3
+  );
+}
+
+.agregar-a-carrito {
+  display: inline-block;
+  text-decoration: none;
+  color: $blue;
+  background-color: $white;
+  padding: $step (
+    $step*3
+  );
+border: 3px solid $white;
+border-radius: ($step*3);
+margin-top: ($step)+5;
+transition: all 0.4s;
+
+&:hover {
+  background: $blue;
+  color: $white;
+}
+}
+
+.joys {
+  width: ($alto, 10);
+}
+
+.compras img{
+  max-width: 20vh;
+  margin: 0 auto;
+  padding: $step;
+  border-radius: $step*2;
+}
+
+/*REGISTRO*/
+
+.form-control {
+  align-self: baseline;
+}
+
+.form-check-input {
+  background: $white;
+}
+
+/* RESPONSIVE */
+
+/* Smartphones (horizontal) ----------- */
+@media (max-width: 760px) {
+  body {
+    font-size: small;
+  }
+
+  #plantillahome {
+    grid-template-areas: "header" "noticias" "ofertas" "footer";
+    grid-template-columns: 1fr;
+  }
+
+  #plantillanosotros {
+    grid-template-areas: "header" "fotos" "historia" "historiados" "footer";
+    grid-template-columns: 1fr;
+
+  }
+
+  #fotos {
+    height: ($alto)-55;
+    padding: 0 ($step*5);
+    margin: 5px;
+  }
+
+  #plantillasesion {
+    grid-template-areas: "header" "imagensesion" "datos" "footer";
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-items: center;
+  }
+
+  #imagensesion {
+    height: 45vh;
+    width: $ancho;
+  }
+
+
+  #accesorios1,
+  #accesorios2 {
+    flex-direction: column;
+    display: block;
+    height: fit-content;
+  }
+
+  #registro {
+    flex-direction: column;
+    height: fit-content;
+    width: fit-content;
+    padding: 5vh;
+
+  }
+}
+
+@media (max-width: 1300px) and (min-width: 760px) {
+  body {
+    font-size: medium;
+  }
+
+  #registro {
+    display: flex;
+    justify-content: space-between;
+    padding: ($step)*5;
+
+  }
+
+}

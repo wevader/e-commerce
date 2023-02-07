@@ -1,0 +1,17 @@
+@import "variable";
+
+footer {
+  grid-area: footer;
+  background: $blue;
+  text-align: center;
+  padding-top: 5vh;
+  width: $ancho;
+}
+
+.redes,
+.politicas,
+.derechosreservados {
+  color: $white;
+  padding: 5px;
+  font-family: cursive;
+}
