@@ -56,7 +56,7 @@ body {
 
 #plantillaaccesorios {
   @include sizes($ancho, $alto, grid);
-  grid-template-areas: "header" "accesorios1" "accesorios2" "footer";
+  grid-template-areas: "header" "accesorios1" "accesorios2" "accesorios3" "footer";
   grid-template-columns: 1fr;
 }
 
@@ -206,6 +206,11 @@ input {
   @extend #accesorios1;
 }
 
+#accesorios3 {
+  grid-area: accesorios3;
+  @extend #accesorios1
+}
+
 /*ACCESORIOS*/
 
 h4 {
@@ -300,7 +305,8 @@ transition: all 0.4s;
 
 
   #accesorios1,
-  #accesorios2 {
+  #accesorios2,
+  #accesorios3 {
     flex-direction: column;
     display: block;
     height: fit-content;

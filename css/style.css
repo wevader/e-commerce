@@ -128,7 +128,7 @@ body::before {
   height: 100vh;
   width: 100%;
   display: grid;
-  grid-template-areas: "header" "accesorios1" "accesorios2" "footer";
+  grid-template-areas: "header" "accesorios1" "accesorios2" "accesorios3" "footer";
   grid-template-columns: 1fr;
 }
 
@@ -257,7 +257,7 @@ input {
   grid-area: historiados;
 }
 
-#accesorios1, #accesorios2 {
+#accesorios1, #accesorios3, #accesorios2 {
   grid-area: accesorios1;
   text-align: center;
   display: flex;
@@ -271,6 +271,10 @@ input {
 
 #accesorios2 {
   grid-area: accesorios2;
+}
+
+#accesorios3 {
+  grid-area: accesorios3;
 }
 
 /*ACCESORIOS*/
@@ -351,7 +355,8 @@ p {
     width: 100%;
   }
   #accesorios1,
-  #accesorios2 {
+  #accesorios2,
+  #accesorios3 {
     flex-direction: column;
     display: block;
     height: fit-content;
