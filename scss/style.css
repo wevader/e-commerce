@@ -19,6 +19,7 @@ header {
   background: rgb(13, 71, 161);
   padding: 0 20px;
   color: rgb(241, 243, 248);
+  height: -moz-fit-content;
   height: fit-content;
   width: 100%;
   align-items: center;
@@ -101,7 +102,8 @@ body::before {
   height: 100vh;
   width: 100%;
   display: grid;
-  column-gap: 20vh;
+  -moz-column-gap: 20vh;
+       column-gap: 20vh;
   grid-template-areas: "header header" "imagensesion datos" "footer footer";
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
@@ -201,6 +203,7 @@ input {
 
 /*GRILLAS*/
 #noticias, #ofertas {
+  height: -moz-fit-content;
   height: fit-content;
   width: 100%;
   display: flex;
@@ -216,7 +219,9 @@ input {
 
 #datos, #registro {
   grid-area: datos;
+  height: -moz-fit-content;
   height: fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   display: flex;
   padding: 50px;
@@ -250,7 +255,9 @@ input {
 
 #historia, #historiados {
   grid-area: historia;
+  height: -moz-fit-content;
   height: fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   display: flex;
   color: rgb(241, 243, 248);
@@ -270,6 +277,7 @@ input {
   text-align: center;
   display: flex;
   justify-content: center;
+  height: -moz-fit-content;
   height: fit-content;
   padding: 10px, 2;
   border: 2px solid rgb(241, 243, 248);
@@ -372,11 +380,14 @@ p {
   #carrito {
     flex-direction: column;
     display: block;
+    height: -moz-fit-content;
     height: fit-content;
   }
   #registro {
     flex-direction: column;
+    height: -moz-fit-content;
     height: fit-content;
+    width: -moz-fit-content;
     width: fit-content;
     padding: 5vh;
   }
@@ -390,6 +401,4 @@ p {
     justify-content: space-between;
     padding: 50px;
   }
-}
-
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */

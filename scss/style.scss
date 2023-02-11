@@ -60,6 +60,12 @@ body {
   grid-template-columns: 1fr;
 }
 
+#plantillacarrito {
+  @include sizes($ancho, $alto, grid);
+  grid-template-areas: "header" "compras" "footer";
+  grid-template-columns: 1fr;
+}
+
 .paginaenconstruccion{
   @include sizes($ancho, $alto, flex);
   color: $white;
@@ -208,7 +214,12 @@ input {
 
 #accesorios3 {
   grid-area: accesorios3;
-  @extend #accesorios1
+  @extend #accesorios1;
+}
+
+#compras{
+  grid-area: compras;
+  @extend #accesorios1;
 }
 
 /*ACCESORIOS*/
@@ -269,7 +280,7 @@ transition: all 0.4s;
 /* RESPONSIVE */
 
 /* Smartphones (horizontal) ----------- */
-@media (max-width: 760px) {
+@media (max-width: 960px) {
   body {
     font-size: small;
   }
@@ -306,7 +317,8 @@ transition: all 0.4s;
 
   #accesorios1,
   #accesorios2,
-  #accesorios3 {
+  #accesorios3,
+  #carrito {
     flex-direction: column;
     display: block;
     height: fit-content;
