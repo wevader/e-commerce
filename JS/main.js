@@ -22,12 +22,32 @@ for(let articulo of array){
     `
     articuloDiv.append(articuloNuevo) 
     let btnAgregarArticulo = document.getElementById(`btnAgregarArticulo${articulo.id}`)
-    btnAgregarArticulo.addEventListener("click", ()=>alert(`${articulo.nombre} se agrego a carrito`))
+    btnAgregarArticulo.addEventListener("click",()=>agregarArticulo(articulo))
 }
 
 }
+
+//Agregar a carrito
 verArticulo(inventario)
-
+function actualizarCarrito(){
+    let carrito
+    if(localStorage.getItem("producto")){
+        carrito = JSON.parse(localStorage.getItem("producto"))
+    }else{
+        carrito = []
+        localStorage.setItem("producto", carrito)
+    }
+    }
+    
+function agregarArticulo(articulo){
+    alert(`${articulo.nombre} se agrego a carrito`)
+        //sumar productos en carrito
+        carrito.push(articulo)
+        //setear carrito
+        localStorage.setItem("producto", JSON.stringify(carrito) )
+    
+    }
+    
 //function buscar por nombre y conexion
 
 function buscar(buscado, array){
