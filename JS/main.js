@@ -2,94 +2,54 @@
  //Declarar Funciones
 
 //codigo DOM
-//funciones capturo div productos
-let productosMousesDiv = document.getElementById("accesorios1")
-let productosTecladosDiv = document.getElementById("accesorios2")
-let productosAudifonosDiv = document.getElementById("accesorios3")
+//funciones capturo div productos, inputs
+let articuloDiv = document.getElementById("accesorios1")
+let inputBuscador = document.getElementById("buscador")
 
-//
-function articuloAgregado(){
-    alert("Articulo Agregado a Carrito")
-}
 
-//mouses div
-function verMouses(array){
+function verArticulo(array){
     
-for(let mouse of array){
+for(let articulo of array){
     let articuloNuevo = document.createElement("div")
 
     articuloNuevo.innerHTML = `
-    <div id ="${mouse.id} " class="compras" >
-        <img src="/imageneswep/${mouse.imagen} " alt="joystick" class="joys">
-        <h4>${mouse.nombre}</h4>
-        <p>Iluminacion: ${mouse.iluminacion} - Conexion: ${mouse.conexion} <br> Precio: ${mouse.precio} MNX </p>
-        <button id="btnAgregarMouse${mouse.id}" href="" class="agregar-a-carrito">Agregar a carrito</button>
+    <div id="${articulo.id} " class="compras">
+        <img id="imagenArticulo" src="/imageneswep/${articulo.imagen}" alt="joystick" class="joys">
+        <h5>${articulo.nombre}</h5>
+        <p>Iluminacion:${articulo.iluminacion} Conexion:${articulo.conexion}<br>Precio: $${articulo.precio}</p>
+        <button id="btnAgregarArticulo${articulo.id}" href="" class="agregar-a-carrito">Agregar a carrito</button>
     </div>
     `
-    productosMousesDiv.append(articuloNuevo) 
+    articuloDiv.append(articuloNuevo) 
+    let btnAgregarArticulo = document.getElementById(`btnAgregarArticulo${articulo.id}`)
+    btnAgregarArticulo.addEventListener("click", ()=>alert(`${articulo.nombre} se agrego a carrito`))
+}
 
-//Eventos agregar mouse
+}
+verArticulo(inventario)
 
-let carritoMousebtn = document.getElementById(`btnAgregarMouse${mouse.id}`) 
-carritoMousebtn.onclick = ()=>{alert(`${mouse.nombre} fue agregado a carrito`)}
+//function buscar por nombre y conexion
 
-    }
+function buscar(buscado, array){
+    
+    let busquedaArray = array.filter(
+        (articulo)=> articulo.nombre.toLowerCase().includes(buscado.toLowerCase()) || articulo.conexion.toLowerCase().includes(buscado.toLowerCase()))
+    if (busquedaArray.length == 0){
+        articuloDiv.innerHTML = `<h3>No hay coincidencias con su busqueda </h3>`
+        verArticulo(busquedaArray)    
+        
+        
+    }else{
+        articuloDiv.innerHTML = ""
+        verArticulo(busquedaArray)
+        
+}
 
 }
 
-//teclados div
-
-function verTeclados(array){
-    
-for(let teclado of array){
-    let articuloNuevo = document.createElement("div")
-
-    articuloNuevo.innerHTML = `
-    <div id="${teclado.id} " class="compras">
-        <img src="/imageneswep/${teclado.imagen}" alt="joystick" class="joys">
-        <h4>${teclado.nombre} </h4>
-        <p>Iluminacion: ${teclado.iluminacion} - Conexion: ${teclado.conexion} <br> Precio: ${teclado.precio} MNX </p>
-        <button id="btnAgregarTeclado${teclado.id}" href="" class="agregar-a-carrito">Agregar a carrito</button>
-    </div>
-    `
-    productosTecladosDiv.append(articuloNuevo) 
-
-//Eventos agregar teclados
-
-let carritoTecladobtn = document.getElementById(`btnAgregarTeclado${teclado.id}`)
-carritoTecladobtn.addEventListener("click", ()=>alert(`${teclado.nombre} fue agregago a carrito`))
-
-    }
-
-}
-//audifonos div
-function verAudifonos(array){
-    
-    for(let audifonos of array){
-        let articuloNuevo = document.createElement("div")
-
-    articuloNuevo.innerHTML = `
-        <div id="${audifonos.id} " class="compras">
-            <img src="/imageneswep/${audifonos.imagen} " alt="joystick" class="joys">
-            <h4>${audifonos.nombre} </h4>
-            <p>Iluminacion: ${audifonos.iluminacion} - Conexion: ${audifonos.conexion} <br> Precio: ${audifonos.precio} MNX </p>
-            <button id="btnAgregarAudifonos${audifonos.id}" href="" class="agregar-a-carrito">Agregar a carrito</button>
-        </div>
-        `
-productosAudifonosDiv.append(articuloNuevo)  
-
-//Eventos agregar audifonos
-
-let carritoAudifonosbtn = document.getElementById(`btnAgregarAudifonos${audifonos.id}`)
-carritoAudifonosbtn.onclick = ()=>{alert(`${audifonos.nombre} fue agregado a carrito`)}
-    
-    }
-    
-}
-
-verMouses(productosMouses)
-verTeclados(productosTeclados)
-verAudifonos(productosAudifonos)
-
-
+inputBuscador.addEventListener("input", ()=>{
+    console.log(inputBuscador.value)
+    console.log(inventario)
+    buscar(inputBuscador.value, inventario)
+    })
 

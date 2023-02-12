@@ -12,13 +12,14 @@ body {
   display: flex;
   width: $ancho;
   font-family: $font;
+  font-size: smaller;
   background-image: url(../imageneswep/videojuegos1.jpeg);
   background-size: cover;
   background-position: center;
 
   &::before{
     content: "";
-    background: $gray;
+    background: $white;
     position: absolute;
     width: $ancho;
     
@@ -56,7 +57,7 @@ body {
 
 #plantillaaccesorios {
   @include sizes($ancho, $alto, grid);
-  grid-template-areas: "header" "accesorios1" "accesorios2" "accesorios3" "footer";
+  grid-template-areas: "header" "accesorios1" "footer";
   grid-template-columns: 1fr;
 }
 
@@ -205,21 +206,16 @@ input {
   border: 2px solid $white;
   border-radius: $step;
   background: $gray;
-}
-
-#accesorios2 {
-  grid-area: accesorios2;
-  @extend #accesorios1;
-}
-
-#accesorios3 {
-  grid-area: accesorios3;
-  @extend #accesorios1;
+  color: $white
 }
 
 #compras{
   grid-area: compras;
   @extend #accesorios1;
+}
+
+#imagenArticulo{
+  width: 45vh
 }
 
 /*ACCESORIOS*/
@@ -280,7 +276,7 @@ transition: all 0.4s;
 /* RESPONSIVE */
 
 /* Smartphones (horizontal) ----------- */
-@media (max-width: 960px) {
+@media (max-width: 1200px) {
   body {
     font-size: small;
   }
@@ -316,8 +312,6 @@ transition: all 0.4s;
 
 
   #accesorios1,
-  #accesorios2,
-  #accesorios3,
   #carrito {
     flex-direction: column;
     display: block;
@@ -333,9 +327,9 @@ transition: all 0.4s;
   }
 }
 
-@media (max-width: 1300px) and (min-width: 760px) {
+@media (max-width: 1300px) and (min-width: 960px) {
   body {
-    font-size: medium;
+    font-size: small;
   }
 
   #registro {
@@ -344,5 +338,7 @@ transition: all 0.4s;
     padding: ($step)*5;
 
   }
+
+  
 
 }

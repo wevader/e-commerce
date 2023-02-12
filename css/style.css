@@ -77,13 +77,14 @@ body {
   display: flex;
   width: 100%;
   font-family: cursive;
+  font-size: smaller;
   background-image: url(../imageneswep/videojuegos1.jpeg);
   background-size: cover;
   background-position: center;
 }
 body::before {
   content: "";
-  background: rgba(23, 9, 61, 0.8);
+  background: rgb(241, 243, 248);
   position: absolute;
   width: 100%;
 }
@@ -128,7 +129,7 @@ body::before {
   height: 100vh;
   width: 100%;
   display: grid;
-  grid-template-areas: "header" "accesorios1" "accesorios2" "accesorios3" "footer";
+  grid-template-areas: "header" "accesorios1" "footer";
   grid-template-columns: 1fr;
 }
 
@@ -265,7 +266,7 @@ input {
   grid-area: historiados;
 }
 
-#accesorios1, #compras, #accesorios3, #accesorios2 {
+#accesorios1, #compras {
   grid-area: accesorios1;
   text-align: center;
   display: flex;
@@ -275,18 +276,15 @@ input {
   border: 2px solid rgb(241, 243, 248);
   border-radius: 10px;
   background: rgba(23, 9, 61, 0.8);
-}
-
-#accesorios2 {
-  grid-area: accesorios2;
-}
-
-#accesorios3 {
-  grid-area: accesorios3;
+  color: rgb(241, 243, 248);
 }
 
 #compras {
   grid-area: compras;
+}
+
+#imagenArticulo {
+  width: 45vh;
 }
 
 /*ACCESORIOS*/
@@ -339,7 +337,7 @@ p {
 
 /* RESPONSIVE */
 /* Smartphones (horizontal) ----------- */
-@media (max-width: 960px) {
+@media (max-width: 1200px) {
   body {
     font-size: small;
   }
@@ -366,9 +364,7 @@ p {
     height: 45vh;
     width: 100%;
   }
-  #accesorios1,
-  #accesorios2,
-  #accesorios3, #compras,
+  #accesorios1, #compras,
   #carrito {
     flex-direction: column;
     display: block;
@@ -381,9 +377,9 @@ p {
     padding: 5vh;
   }
 }
-@media (max-width: 1300px) and (min-width: 760px) {
+@media (max-width: 1300px) and (min-width: 960px) {
   body {
-    font-size: medium;
+    font-size: small;
   }
   #registro {
     display: flex;

@@ -6,7 +6,7 @@ agregar = true
 
 //objetos y arrays
 //MOUSES
-class mouse{
+/* class mouse{
     constructor(id, nombre, conexion, iluminacion, precio, imagen){
         this.id = id,
         this.nombre = nombre,
@@ -26,10 +26,10 @@ class teclado{
         this.precio = precio,
         this.imagen = imagen
     }
-}
+} */
 
 //AUDIFONOS
-class audifonos{
+class articulo{
     constructor(id, nombre, conexion, iluminacion, precio, imagen){
         this.id = id,
         this.nombre = nombre,
@@ -41,24 +41,22 @@ class audifonos{
 }
 
 //arrays articulos tienda
-let productosMouses = []
+/* let productosMouses = []
 let productosTeclados = []
-let productosAudifonos = []
+let productosAudifonos = [] */
+let inventario = []
 
 
-const mouse1 = new mouse(1, "Mouse Razer", "Inalambrico", "RGB", 590, "mouse.jpg")
-const mouse2 = new mouse(2, "Mouse Logitech", "Alambrico", "Azul", 650,"mouse.jpg")
-const mouse3 = new mouse(3, "Mouse HyperX", "Inalambrico", "RGB", 760, "mouse.jpg")
-
-const teclado1 = new teclado(4, "Teclado Razer", "Inalambrico", "RGB", 660, "teclado.png")
-const teclado2 = new teclado(5, "Teclado Logitech", "Alambrico", "Rojo", 620, "teclado.png")
-const teclado3 = new teclado(6, "Teclado HyperX", "Inalambrico", "Morado", 800, "teclado.png")
-
-const audifonos1 = new audifonos(7, "Audifonos Razer", "Inalambrico", "Rojo", 780, "razer.jpg")
-const audifonos2 = new audifonos(8, "Audifonos Logitech", "Alambrico", "RGB", 450, "razer.jpg")
-const audifonos3 = new audifonos(9, "Audifonos HyperX", "Inalambrico", "RGB", 810, "razer.jpg")
+const mouse1 = new articulo(1, "Mouse Razer", "Inalambrico", "RGB", 590, "mouse.jpg")
+const mouse2 = new articulo(2, "Mouse Logitech", "Alambrico", "Azul", 650,"mouse.jpg")
+const mouse3 = new articulo(3, "Mouse HyperX", "Inalambrico", "RGB", 760, "mouse.jpg")
+const audifonos1 = new articulo(4, "Audifonos Razer", "Inalambrico", "Rojo", 780, "razer.jpg")
+const audifonos2 = new articulo(5, "Audifonos Logitech", "Alambrico", "RGB", 450, "razer.jpg")
+const audifonos3 = new articulo(6, "Audifonos HyperX", "Inalambrico", "RGB", 810, "razer.jpg")
 
 //PUSH PRODUCTOS ARRAYS
-productosMouses.push(mouse1, mouse2, mouse3)
-productosTeclados.push(teclado1, teclado2, teclado3)
-productosAudifonos.push(audifonos1, audifonos2, audifonos3)
+/* productosMouses.push(mouse1, mouse2, mouse3) */
+/* productosTeclados.push(teclado1, teclado2, teclado3) */
+/* productosAudifonos.push() */
+
+inventario.push(mouse1, mouse2, mouse3, audifonos1, audifonos2, audifonos3)
