@@ -17,7 +17,7 @@ footer {
 header {
   grid-area: header;
   background: rgb(13, 71, 161);
-  padding: 0 20px;
+  padding: 0px 20px;
   color: rgb(241, 243, 248);
   height: fit-content;
   width: 100%;
@@ -177,16 +177,30 @@ body::before {
   font-family: cursive;
 }
 
+.comprasCarrito {
+  background: rgb(13, 71, 161);
+  max-width: 20vh;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 20px;
+}
+
 .btn {
   background: rgb(241, 243, 248);
   font-family: cursive;
   color: rgb(13, 71, 161);
+  margin: 5px;
+  height: fit-content;
   border-bottom: 5px;
   border: 2px solid rgba(23, 9, 61, 0.8);
   transition: all 0.4s;
 }
 .btn:hover {
   border: 2px solid rgb(241, 243, 248);
+  background: rgb(13, 71, 161);
+}
+
+.modal-header, .card {
   background: rgb(13, 71, 161);
 }
 
@@ -283,8 +297,16 @@ input {
   grid-area: compras;
 }
 
+#pagoTotal {
+  color: rgb(13, 71, 161);
+}
+
 #imagenArticulo {
   width: 45vh;
+}
+
+.precioRebajado {
+  color: green;
 }
 
 /*ACCESORIOS*/
@@ -368,7 +390,7 @@ p {
   #carrito {
     flex-direction: column;
     display: block;
-    height: fit-content;
+    height: max-content;
   }
   #registro {
     flex-direction: column;

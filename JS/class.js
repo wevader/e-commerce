@@ -29,4 +29,18 @@ const audifonos2 = new articulo(5, "Audifonos Logitech", "Alambrico", "RGB", 450
 const audifonos3 = new articulo(6, "Audifonos HyperX", "Inalambrico", "RGB", 810, "razer.jpg")
 
 //PUSH PRODUCTOS ARRAYS
-inventario.push(mouse1, mouse2, mouse3, audifonos1, audifonos2, audifonos3)
+
+if(localStorage.getItem("inventario")){
+    //existe algo en storage
+    //para volver a instanciar con la class
+    for(let  articulos of JSON.parse(localStorage.getItem("inventario"))){
+        let storageArticulo = new articulo(articulos.id, articulos.nombre, articulos.conexion, articulos.iluminacion, articulos.precio, articulos.imagen)
+        console.log(storageArticulo)
+        inventario.push(storageArticulo)
+        
+    }  
+}else{
+    //si no existe
+    inventario.push(mouse1, mouse2, mouse3, audifonos1, audifonos2, audifonos3)
+    localStorage.setItem("inventario", JSON.stringify(inventario))
+}

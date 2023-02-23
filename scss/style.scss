@@ -101,11 +101,19 @@ body {
   padding-top: ($step*4)+5;
   font-family: $font;
 }
-
+.comprasCarrito{
+  background: $blue;
+  max-width: 20vh;
+  margin: 0 auto;
+  padding: $step;
+  border-radius: $step*2;
+}
 .btn {
   background: $white;
   font-family: $font;
   color: $blue;
+  margin: 5px;
+  height: fit-content;
   border-bottom: 5px;
   border: 2px solid $gray;
   transition: all 0.4s;
@@ -114,6 +122,10 @@ body {
     border: 2px solid $white;
     background: $blue;
   }
+}
+
+.modal-header, .card{
+  background: $blue;
 }
 
 /*PSEUDO-CLASES*/
@@ -214,8 +226,16 @@ input {
   @extend #accesorios1;
 }
 
+#pagoTotal{
+  color: $blue;
+}
+
 #imagenArticulo{
   width: 45vh
+}
+
+.precioRebajado{
+  color: green;
 }
 
 /*ACCESORIOS*/
@@ -315,7 +335,7 @@ transition: all 0.4s;
   #carrito {
     flex-direction: column;
     display: block;
-    height: fit-content;
+    height: max-content;
   }
 
   #registro {

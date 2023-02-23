@@ -42,12 +42,38 @@
               <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="accesorios.html">Accesorios</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="carrito.html">Carrito</a>
-              </li>
             </ul>
+            <!-- Button trigger modal -->
+            <button id="carrito" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              <img src="../imageneswep/bxs-cart.svg" alt="carrito de compras">
+            </button>
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Carrito</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" id="agregarCarritoBody">
+                    
+                  </div>
+                  <div class="row ml-ato">
+                    <p id="pagoTotal"></p>
+                  </div>
+                  <div class="modal-footer">
+                    
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary">Realizar Compra</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
             <form class="d-flex" role="search">
-              <input id ="buscador" class="form-check" type="search" placeholder="Buscar por nombre/conexion" aria-label="Search">
+              <input id="buscador" class="form-check" type="search" placeholder="Buscar por nombre/conexion"
+                aria-label="Search">
               <button class="btn" type="submit">Buscar</button>
             </form>
           </div>
@@ -55,16 +81,12 @@
       </nav>
       <h2>Aprovecha Nuestros Descuentos</h2>
     </header>
-    
+
     <section id="accesorios1">
-    
+
+
     </section>
-    <section id="accesorios2">
-    
-    </section>
-    <section id="accesorios3">
-    
-    </section>
+
 
     <footer class="border-items">
       <div class="redes">
@@ -82,11 +104,12 @@
         <span>TODOS LOS DERECHOS RESERVADOS</span>
       </div>
 
-    
+
     </footer>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="../JS/class.js"></script>
-  <script src="../JS/carrito.js"></script>
   <script src="../JS/main.js"></script>
-  
+
+
 </body>
