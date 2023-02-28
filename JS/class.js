@@ -21,6 +21,7 @@ let inventario = []
 let carrito = []
 
 
+
 const mouse1 = new articulo(1, "Mouse Razer", "Inalambrico", "RGB", 590, "mouse.jpg")
 const mouse2 = new articulo(2, "Mouse Logitech", "Alambrico", "Azul", 650,"mouse.jpg")
 const mouse3 = new articulo(3, "Mouse HyperX", "Inalambrico", "RGB", 760, "mouse.jpg")
@@ -35,7 +36,6 @@ if(localStorage.getItem("inventario")){
     //para volver a instanciar con la class
     for(let  articulos of JSON.parse(localStorage.getItem("inventario"))){
         let storageArticulo = new articulo(articulos.id, articulos.nombre, articulos.conexion, articulos.iluminacion, articulos.precio, articulos.imagen)
-        console.log(storageArticulo)
         inventario.push(storageArticulo)
         
     }  
