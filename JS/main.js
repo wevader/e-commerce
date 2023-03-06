@@ -23,12 +23,12 @@ let botonRealizarCompra = document.getElementById("botonRealizarCompra")
 //Declarar Funciones
 
 //Agregar a carrito storage
-let productosEnCarrito
+
     if(localStorage.getItem("carrito")){
-        productosEnCarrito += JSON.parse(localStorage.getItem("carrito"))
+        carrito = JSON.parse(localStorage.getItem("carrito"))
     }else{
-        productosEnCarrito = []
-        localStorage.setItem("carrito", productosEnCarrito)
+        let carrito = []
+        localStorage.setItem("carrito", JSON.stringify(carrito))
     }
 
 function agregarArticulo(articulo){
@@ -67,12 +67,17 @@ function agregarArticulo(articulo){
                 })
             
             }
+
 function compraTotal(array){
-    let total = array.reduce((acc, productosEnCarrito) => {return acc += productosEnCarrito.precio}, 0)
+    let total = array.reduce((acc, carritoCompras) => acc + carritoCompras.precio, 0)
     //ternario
     total == 0 ?
     pagoTotal.innerHTML =`Carrito Vacio` : pagoTotal.innerHTML = `Total a pagar: $ ${total}`
-            }
+    
+    return total           
+}
+
+
 
 function verArticulo(array){
     
@@ -85,7 +90,7 @@ function verArticulo(array){
             <h5>${articulo.nombre}</h5>
             <p> Iluminacion:${articulo.iluminacion} Conexion:${articulo.conexion}</p>
             <p class="${articulo.precio <= 700 && "precioRebajado"}" > Precio: $${articulo.precio} </p>
-            <button id="btnAgregarArticulo${articulo.id}" href="" class="agregar-a-carrito">
+            <button id="btnAgregarArticulo${articulo.id}" href="" class="agregar-a-carrito"> 
             <img src="../imageneswep/bxs-cart-add.svg" alt="agregar a carrito">
             </button>
         </div>
@@ -110,14 +115,15 @@ function finalizarCompra(array){
         reverseButtons: true
     }).then((result) => {
         if (result.isConfirmed) {
-            let totalFinalizar = finalizarCompra(array)
+            let totalFinalizar = compraTotal(array)
         swalWithBootstrapButtons.fire(
             'Gracias por su compra!',
             `Total de su compra ${totalFinalizar}`,
             
         )
-        productosEnCarrito = []
+        carrito = []
         localStorage.removeItem("carrito")
+        total = 0
 
         } else if (
         
@@ -183,7 +189,7 @@ inputBuscador.addEventListener("input", ()=>{
 
 botonCarrito.addEventListener("click", ()=>{cargarArticulosCarrito(carrito)})
 botonRealizarCompra.addEventListener("click", ()=>{
-    finalizarCompra(productosEnCarrito)
+    finalizarCompra(carrito)
 })
 
 
