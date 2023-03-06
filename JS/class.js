@@ -19,7 +19,8 @@ class articulo{
 //arrays articulos tienda
 let inventario = []
 let carrito = []
-
+let total = 0
+let totalFinalizar = 0
 
 
 const mouse1 = new articulo(1, "Mouse Razer", "Inalambrico", "RGB", 590, "mouse.jpg")

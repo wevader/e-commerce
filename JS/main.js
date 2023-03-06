@@ -27,7 +27,7 @@ let botonRealizarCompra = document.getElementById("botonRealizarCompra")
     if(localStorage.getItem("carrito")){
         carrito = JSON.parse(localStorage.getItem("carrito"))
     }else{
-        let carrito = []
+        carrito = []
         localStorage.setItem("carrito", JSON.stringify(carrito))
     }
 
@@ -47,26 +47,6 @@ function agregarArticulo(articulo){
     
     } 
     
-//funcion cargar articulos en carrito
-
-    function cargarArticulosCarrito(array){
-        agregarCarrito.innerHTML = ""
-        array.forEach((articuloCarrito) => {
-            agregarCarrito.innerHTML += `
-                <div class="card" id="articulo${articuloCarrito.id}" style="max-width: 540px;">
-                    <div class="compras">
-                        <img id="imagenArticulo" src="/imageneswep/${articuloCarrito.imagen}" alt="joystick" class="joys">
-                        <h5>${articuloCarrito.nombre}</h5>
-                        <p> Iluminacion:${articuloCarrito.iluminacion} Conexion:${articuloCarrito.conexion}</p>
-                        <p class="${articuloCarrito.precio <= 700 && "precioRebajado"}" > Precio: $${articuloCarrito.precio} </p>
-                        <button class = "btn btn-danger" id="btnEliminarArticulo${articuloCarrito.id}" href=""><img src="../imageneswep/bx-trash.svg" alt="Eliminar">
-                        </button>
-                    </div>
-                </div>
-                    `
-                })
-            
-            }
 
 function compraTotal(array){
     let total = array.reduce((acc, carritoCompras) => acc + carritoCompras.precio, 0)
@@ -76,7 +56,6 @@ function compraTotal(array){
     
     return total           
 }
-
 
 
 function verArticulo(array){
@@ -104,6 +83,32 @@ function verArticulo(array){
 
     }
 
+    
+    
+//funcion cargar articulos en carrito
+
+function cargarArticulosCarrito(array){
+    agregarCarrito.innerHTML = ""
+    array.forEach((articuloCarrito) => {
+        agregarCarrito.innerHTML += `
+            <div class="card" id="articulo${articuloCarrito.id}" style="max-width: 540px;">
+                <div class="compras">
+                    <img id="imagenArticulo" src="/imageneswep/${articuloCarrito.imagen}" alt="joystick" class="joys">
+                    <h5>${articuloCarrito.nombre}</h5>
+                    <p> Iluminacion:${articuloCarrito.iluminacion} Conexion:${articuloCarrito.conexion}</p>
+                    <p class="${articuloCarrito.precio <= 700 && "precioRebajado"}" > Precio: $${articuloCarrito.precio} </p>
+                    <button class = "btn btn-danger" id="btnEliminarArticulo${articuloCarrito.id}" href=""><img src="../imageneswep/bx-trash.svg" alt="Eliminar">
+                    </button>
+                </div>
+            </div>
+                `
+            })
+            compraTotal(carrito)
+        }
+
+cargarArticulosCarrito(carrito)
+
+
 function finalizarCompra(array){
     swalWithBootstrapButtons.fire({
         title: 'Seguro que realizara la compra?',
@@ -118,12 +123,11 @@ function finalizarCompra(array){
             let totalFinalizar = compraTotal(array)
         swalWithBootstrapButtons.fire(
             'Gracias por su compra!',
-            `Total de su compra ${totalFinalizar}`,
-            
+            `Total de su compra ${totalFinalizar}`
         )
         carrito = []
         localStorage.removeItem("carrito")
-        total = 0
+        cargarArticulosCarrito(carrito)
 
         } else if (
         
@@ -151,7 +155,6 @@ function buscar(buscado, array){
     
 }
 
-compraTotal(carrito)
 
 function cargarStock(cargando){
     return new Promise((result, reject) => {
@@ -191,5 +194,6 @@ botonCarrito.addEventListener("click", ()=>{cargarArticulosCarrito(carrito)})
 botonRealizarCompra.addEventListener("click", ()=>{
     finalizarCompra(carrito)
 })
+
 
 
