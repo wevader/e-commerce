@@ -1,8 +1,4 @@
-
-
 //codigo DOM
-
-
 const swalWithBootstrapButtons = Swal.mixin({
     customClass: {
     confirmButton: 'btn btn-success',
@@ -56,7 +52,6 @@ function compraTotal(array){
     
     return total           
 }
-
 
 function verArticulo(array){
     

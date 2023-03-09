@@ -1,0 +1,55 @@
+[
+    {
+        "id": 1,
+        "nombre": "Mouse Razer",
+        "conexion":"Inalambrico",
+        "iluminacion":"RBG",
+        "precio": 590,
+        "imagen":"mouse.jpg"
+    },
+    {
+        "id": 2,
+        "nombre": "Mouse Logitech",
+        "conexion":"Alambrico",
+        "iluminacion":"Azul",
+        "precio": 650,
+        "imagen":"mouse.jpg"
+    },
+    {
+        "id": 3,
+        "nombre": "Mouse HyperX",
+        "conexion":"Inalambrico",
+        "iluminacion":"RBG",
+        "precio": 760,
+        "imagen":"mouse.jpg"
+
+    },
+    {
+        "id": 4,
+        "nombre": "Audifonos Razer",
+        "conexion":"Inalambrico",
+        "iluminacion":"Rojo",
+        "precio": 780,
+        "imagen":"razer.jpg"
+
+    },
+    {
+        "id": 5,
+        "nombre": "Audifonos Logitech",
+        "conexion":"Alambrico",
+        "iluminacion":"RBG",
+        "precio": 450,
+        "imagen":"razer.jpg"
+
+    },
+    {
+        "id": 6,
+        "nombre": "Audifonos HyperX",
+        "conexion":"Inalambrico",
+        "iluminacion":"RBG",
+        "precio": 810,
+        "imagen":"razer.jpg"
+
+    }
+
+]
