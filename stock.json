@@ -5,7 +5,7 @@
         "conexion":"Inalambrico",
         "iluminacion":"RBG",
         "precio": 590,
-        "imagen":"mouse.jpg",
+        "imagen":"mouse.jpg"
     
     },
     {
@@ -14,7 +14,7 @@
         "conexion":"Alambrico",
         "iluminacion":"Azul",
         "precio": 650,
-        "imagen":"mouse.jpg",
+        "imagen":"mouse.jpg"
         
     },
     {
@@ -23,7 +23,7 @@
         "conexion":"Inalambrico",
         "iluminacion":"RBG",
         "precio": 760,
-        "imagen":"mouse.jpg",
+        "imagen":"mouse.jpg"
         
 
     },
@@ -33,7 +33,7 @@
         "conexion":"Inalambrico",
         "iluminacion":"Rojo",
         "precio": 780,
-        "imagen":"razer.jpg",
+        "imagen":"razer.jpg"
         
 
     },
@@ -43,7 +43,7 @@
         "conexion":"Alambrico",
         "iluminacion":"RBG",
         "precio": 450,
-        "imagen":"razer.jpg",
+        "imagen":"razer.jpg"
         
 
     },
@@ -53,7 +53,7 @@
         "conexion":"Inalambrico",
         "iluminacion":"RBG",
         "precio": 810,
-        "imagen":"razer.jpg",
+        "imagen":"razer.jpg"
         
 
     }
