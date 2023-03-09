@@ -6,7 +6,7 @@
         "iluminacion":"RBG",
         "precio": 590,
         "imagen":"mouse.jpg",
-        "cantidad": 1
+    
     },
     {
         "id": 2,
@@ -15,7 +15,7 @@
         "iluminacion":"Azul",
         "precio": 650,
         "imagen":"mouse.jpg",
-        "cantidad": 1
+        
     },
     {
         "id": 3,
@@ -24,7 +24,7 @@
         "iluminacion":"RBG",
         "precio": 760,
         "imagen":"mouse.jpg",
-        "cantidad": 1
+        
 
     },
     {
@@ -34,7 +34,7 @@
         "iluminacion":"Rojo",
         "precio": 780,
         "imagen":"razer.jpg",
-        "cantidad": 1
+        
 
     },
     {
@@ -44,7 +44,7 @@
         "iluminacion":"RBG",
         "precio": 450,
         "imagen":"razer.jpg",
-        "cantidad": 1
+        
 
     },
     {
@@ -54,7 +54,7 @@
         "iluminacion":"RBG",
         "precio": 810,
         "imagen":"razer.jpg",
-        "cantidad": 1
+        
 
     }
 

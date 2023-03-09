@@ -36,7 +36,7 @@ localStorage.setItem("inventario", JSON.stringify(inventario))
 
 if(localStorage.getItem("inventario")){
     //existe algo en storage
-    for(let articulos of JSON.parse(localStorage.getItem("invetario"))){
+    for(let articulos of JSON.parse(localStorage.getItem("inventario"))){
         let articulosStorage= new Articulo(articulos.id, articulos.nombre, articulos.conexion, articulos.iluminacion, articulos.precio, articulos.imagen)
         inventario.push(articulosStorage)
     }

@@ -21,7 +21,13 @@ let botonRealizarCompra = document.getElementById("botonRealizarCompra")
 //Agregar a carrito storage
 
     if(localStorage.getItem("carrito")){
-        carrito = JSON.parse(localStorage.getItem("carrito"))
+        
+        for(let articulos of JSON.parse(localStorage.getItem("carrito"))){
+            let unidadesStorage = articulos.cantidad
+            let carritoNuevo = new Articulo(articulos.id, articulos.nombre, articulos.conexion, articulos.iluminacion, articulos.precio, articulos.imagen)
+            carritoNuevo.cantidad = unidadesStorage
+            carrito.push(carritoNuevo)
+        }
     }else{
         carrito = []
         localStorage.setItem("carrito", JSON.stringify(carrito))
@@ -129,13 +135,15 @@ function cargarArticulosCarrito(array){
             
                 document.getElementById(`sumarCarrito${articuloCarrito.id}`).addEventListener("click", ()=>{
                     articuloCarrito.sumarUnidad()
+                    localStorage.setItem("carrito", JSON.stringify(carrito))
                     cargarArticulosCarrito(array)
                 })
-
+console.log(carrito)
                 // restar unidad
 
                 document.getElementById(`restarCarrito${articuloCarrito.id}`).addEventListener("click", ()=>{
                     articuloCarrito.restarUnidad()
+                    localStorage.setItem("carrito", JSON.stringify(carrito))
                     cargarArticulosCarrito(array)
                 })
             })
@@ -160,6 +168,7 @@ function finalizarCompra(array){
         )
         carrito = []
         localStorage.removeItem("carrito")
+        compraTotal(carrito)
         cargarArticulosCarrito(carrito)
 
         } else if (
