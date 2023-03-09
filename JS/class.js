@@ -7,13 +7,21 @@ class Articulo{
         this.conexion = conexion,
         this.iluminacion = iluminacion, 
         this.precio = precio,
-        this.imagen = imagen
+        this.imagen = imagen,
+        this.cantidad = 1
     }
+    sumarUnidad(){
+        this.cantidad += 1
+    }
+    restarUnidad(){
+        this.cantidad = this.cantidad - 1
+    } 
 }
 
 //arrays articulos tienda
 let carrito = []
 let inventario = []
+
 
 const cargarInventario = async () => {
 const resp = await fetch("../stock.json")
@@ -28,13 +36,12 @@ localStorage.setItem("inventario", JSON.stringify(inventario))
 
 if(localStorage.getItem("inventario")){
     //existe algo en storage
-    inventario = JSON.parse(localStorage.getItem("invetario"))
     for(let articulos of JSON.parse(localStorage.getItem("invetario"))){
         let articulosStorage= new Articulo(articulos.id, articulos.nombre, articulos.conexion, articulos.iluminacion, articulos.precio, articulos.imagen)
         inventario.push(articulosStorage)
     }
-    }  
-else{
+    console.log(inventario)
+    }else{
     //si no existe
     cargarInventario() 
 } 

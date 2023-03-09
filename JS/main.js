@@ -45,7 +45,7 @@ function agregarArticulo(articulo){
     
 
 function compraTotal(array){
-    let total = array.reduce((acc, carritoCompras) => acc + carritoCompras.precio, 0)
+    let total = array.reduce((acc, carritoCompras) => acc + (carritoCompras.precio*carritoCompras.cantidad), 0)
     //ternario
     total == 0 ?
     pagoTotal.innerHTML =`Carrito Vacio` : pagoTotal.innerHTML = `Total a pagar: $ ${total}`
@@ -77,8 +77,6 @@ function verArticulo(array){
     }
 
     }
-
-    
     
 //funcion cargar articulos en carrito
 
@@ -91,18 +89,58 @@ function cargarArticulosCarrito(array){
                     <img id="imagenArticulo" src="/imageneswep/${articuloCarrito.imagen}" alt="joystick" class="joys">
                     <h5>${articuloCarrito.nombre}</h5>
                     <p> Iluminacion:${articuloCarrito.iluminacion} Conexion:${articuloCarrito.conexion}</p>
-                    <p class="${articuloCarrito.precio <= 700 && "precioRebajado"}" > Precio: $${articuloCarrito.precio} </p>
+                    <p class="${articuloCarrito.precio <= 700 && "precioRebajado"}" > Precio por Unidad: $${articuloCarrito.precio} </p>
+                    <p class="${articuloCarrito.cantidad}" > Unidades: ${articuloCarrito.cantidad} </p>
+                    <p class="${articuloCarrito.precio <= 700 && "precioRebajado"}" > Sub Total: $${articuloCarrito.precio * articuloCarrito.cantidad} </p>
+                    <button id="sumarCarrito${articuloCarrito.id}" class="btn btn-success"><i class=""></i>+1</button>
+                    <button id="restarCarrito${articuloCarrito.id}" class="btn btn-danger"><i class=""></i>-1</button>
                     <button class = "btn btn-danger" id="btnEliminarArticulo${articuloCarrito.id}" href=""><img src="../imageneswep/bx-trash.svg" alt="Eliminar">
                     </button>
+                    
                 </div>
             </div>
                 `
+                compraTotal(array)
             })
-            compraTotal(carrito)
+            //for each elimina//sumar//restar productos
+            array.forEach((articuloCarrito)=>{
+
+                //function eliminar producto de carrito
+                document.getElementById(`btnEliminarArticulo${articuloCarrito.id}`).addEventListener(`click`, ()=>{
+                    //borrar del DOM
+                    let cardProducto = document.getElementById(`articulo${articuloCarrito.id}`)
+                    cardProducto.remove()
+            
+                    //eliminar del array
+                    let articuloEliminar = array.find(articulo => articulo.id == articuloCarrito.id)
+                    console.log(articuloEliminar)
+                    //buscar indice
+                    let posicion = array.indexOf(articuloEliminar)
+                    console.log(posicion)
+                    //splice(posicion donde trabajar, cantidad de elementos a eliminar)
+                    array.splice(posicion, 1)
+            
+                    //eliminar storage(setear)
+                    localStorage.setItem("carrito", JSON.stringify(array))
+                    compraTotal(array)
+                })
+                
+                // sumar unidad
+            
+                document.getElementById(`sumarCarrito${articuloCarrito.id}`).addEventListener("click", ()=>{
+                    articuloCarrito.sumarUnidad()
+                    cargarArticulosCarrito(array)
+                })
+
+                // restar unidad
+
+                document.getElementById(`restarCarrito${articuloCarrito.id}`).addEventListener("click", ()=>{
+                    articuloCarrito.restarUnidad()
+                    cargarArticulosCarrito(array)
+                })
+            })
         }
-
 cargarArticulosCarrito(carrito)
-
 
 function finalizarCompra(array){
     swalWithBootstrapButtons.fire({
@@ -118,7 +156,7 @@ function finalizarCompra(array){
             let totalFinalizar = compraTotal(array)
         swalWithBootstrapButtons.fire(
             'Gracias por su compra!',
-            `Total de su compra ${totalFinalizar}`
+            `Total de su compra $${totalFinalizar}`
         )
         carrito = []
         localStorage.removeItem("carrito")
@@ -170,7 +208,7 @@ function cargarStock(cargando){
 
 cargarStock(true)
 .then((result)=>{
-    console.log("tu catalogo es:")
+    console.log("success")
     console.log(result)
 })
 
