@@ -138,15 +138,29 @@ function cargarArticulosCarrito(array){
                     localStorage.setItem("carrito", JSON.stringify(carrito))
                     cargarArticulosCarrito(array)
                 })
-console.log(carrito)
                 // restar unidad
 
                 document.getElementById(`restarCarrito${articuloCarrito.id}`).addEventListener("click", ()=>{
-                    articuloCarrito.restarUnidad()
-                    localStorage.setItem("carrito", JSON.stringify(carrito))
-                    cargarArticulosCarrito(array)
+                    let cantidad = articuloCarrito.restarUnidad()
+                    if(cantidad < 1){
+                        let cardProducto = document.getElementById(`articulo${articuloCarrito.id}`)
+                        cardProducto.remove()
+                        //buscar indice
+                        let posicion = array.indexOf(articuloCarrito)
+                        //splice(posicion donde trabajar, cantidad de elementos a eliminar)
+                        array.splice(posicion, 1)
+                         //eliminar storage(setear)
+                        localStorage.setItem("carrito", JSON.stringify(array))
+                        compraTotal(array)
+                        }else{
+                        localStorage.setItem("carrito", JSON.stringify(array))
+                        }
+                
+                        cargarArticulosCarrito(array)
+                    
                 })
             })
+            compraTotal(array)
         }
 cargarArticulosCarrito(carrito)
 
